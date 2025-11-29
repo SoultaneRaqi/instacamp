@@ -22,7 +22,7 @@ A full-stack social media application built with **Laravel 10** and **MongoDB**.
 
 ## ⚙️ Prerequisites
 
-Ensure your machine (Linux/Pop!_OS) has the following installed:
+Ensure your machine has the following installed:
 
 * PHP 8.4
 * Composer
