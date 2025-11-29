@@ -48,10 +48,9 @@ Route::get(uri: '/profile/{user}', action: [ProfileController::class, 'show'])->
 Route::get(uri: '/profile/{user}/edit', action: [ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch(uri: '/profile/{user}', action: [ProfileController::class, 'update'])->name('profile.update');
 
-
-//Like routes
-Route::post(uri: '/posts/{post}/like', action: [LikeController::class, 'likePost'])->name('likes.store');
-Route::post(uri: '/posts/{post}/unlike', action: [LikeController::class, 'unlikePost'])->name('likes.destroy');
+// Like routes - CORRECTED
+Route::post(uri: '/posts/{post}/like', action: [LikeController::class, 'store'])->name('likes.store');
+Route::delete(uri: '/posts/{post}/unlike', action: [LikeController::class, 'destroy'])->name('likes.destroy');
 
 
 //Comment routes

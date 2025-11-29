@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use PHPUnit\Framework\Constraint\Operator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use App\Models\Like;
 class LikeController extends Controller
 {
     public function __construct()
@@ -23,7 +24,7 @@ class LikeController extends Controller
 
     public function destroy(Post $post): RedirectResponse
     {
-        $post->likes()->where(column: 'user_id',operator: auth()->id())->delete();
+        $post->likes()->where('user_id', auth()->id())->delete();
         return back();
     }
 }

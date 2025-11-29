@@ -9,15 +9,15 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 class ProfileController extends Controller
 {
-    public function index(User $user): View
+    public function show(User $user): View
     {
-       return view(view:'profile.index', data: compact(var_name:'user')); 
+       return view(view:'profiles.index', data: compact(var_name:'user')); 
     }
 
     public function edit(User $user): View
     {
-        if (auth()->id() !== $user) {
-            abort(code:403 ,  message:'Unauthorized action.');
+        if (auth()->id() !== $user->id) { 
+            abort(code:403, message:'Unauthorized action.');
         }
 
         return view(view:'profiles.edit', data: compact(var_name:'user')); 
@@ -25,8 +25,8 @@ class ProfileController extends Controller
 
     public function update(Request $request, User $user): RedirectResponse
     {
-         if (auth()->id() !== $user) {
-            abort(code:403 ,  message:'Unauthorized action.');
+         if (auth()->id() !== $user->id) { 
+            abort(code:403, message:'Unauthorized action.');
         }
 
         $data = $request->validate(rules: [
@@ -39,10 +39,12 @@ class ProfileController extends Controller
         
         if ($request->hasFile(key:'profile_image')) {
             if ($user->profile_image) {
-                Storage::delete(path:$user->profile_image);
+                // FIX: Remove 'path:' from Storage::delete()
+                Storage::delete('uploads/' .$user->profile_image); 
             }
-            $imagePath = $request->file(key:'profile_image')->store(path:'uploads', options:'public');
-            $data['profile_image'] = basename(path:$imagePath);
+            // Keep named arguments here as they align with the store() method signature
+            $imagePath = $request->file(key:'profile_image')->store(path:'uploads', options:'public'); 
+            $data['profile_image'] = $imagePath;
         }
 
         $user->update(attributes: $data);
