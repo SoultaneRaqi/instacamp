@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Models;
+
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use MongoDB\Laravel\Eloquent\Model;
 
 class Post extends Model
 {
