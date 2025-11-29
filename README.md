@@ -45,22 +45,26 @@ Follow these steps to set up the project locally:
 git clone [https://github.com/YOUR_GITHUB_USERNAME/instacamp.git](https://github.com/SoultaneRaqi
 /instacamp.git)
 cd instacamp
+```
 
-2. Install Dependencies
-Bash
+### 2. Install Dependencies
+```Bash
 
 composer install
-3. Configure Environment
-Copy the example environment file and generate your application key:
+```
 
-Bash
+### 3. Configure Environment
+Copy the example environment file and generate your application key:
+```Bash
 
 cp .env.example .env
 php artisan key:generate
-4. Configure Database (.env)
+```
+### 4. Configure Database (.env)
+
 Open the .env file and configure your MongoDB connection.
 
-Ini, TOML
+```Bash
 
 DB_CONNECTION=mongodb
 DB_HOST=127.0.0.1
@@ -69,28 +73,33 @@ DB_DATABASE=instacamp
 DB_USERNAME=your_db_username
 DB_PASSWORD=your_db_password
 DB_AUTHENTICATION_DATABASE=admin
-5. Link Storage
+```
+
+### 5. Link Storage
 Create the symbolic link to serve uploaded images publicly:
 
-Bash
+```Bash
 
 php artisan storage:link
-▶️ Running the Application
+```
+
+### ▶️ Running the Application
 Start the local development server:
 
-Bash
+```Bash
 
 php artisan serve
 Visit http://127.0.0.1:8000 in your browser.
+```
 
-📂 Project Structure
+### 📂 Project Structure
 app/Models/: Contains MongoDB-extended Eloquent models (User, Post, Like).
 
 app/Http/Controllers/: Handles request logic (PostController, ProfileController, etc.).
 
 routes/web.php: Application routes defined with standard RESTful conventions.
 
-🤝 Contributing
+### 🤝 Contributing
 Fork the repository.
 
 Create a new branch (git checkout -b feature/AmazingFeature).
@@ -101,5 +110,5 @@ Push to the branch (git push origin feature/AmazingFeature).
 
 Open a Pull Request.
 
-📝 License
+### 📝 License
 This project is open-sourced software licensed under the MIT license.
