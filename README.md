@@ -42,8 +42,8 @@ Follow these steps to set up the project locally:
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/YOUR_GITHUB_USERNAME/instacamp.git](https://github.com/SoultaneRaqi
-/instacamp.git)
+git clone https://github.com/SoultaneRaqi
+/instacamp.git
 cd instacamp
 ```
 
