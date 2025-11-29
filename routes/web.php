@@ -26,6 +26,11 @@ use App\Http\Controllers\CommentController;
 Route::get(uri: '/', action: [PostController::class, 'index'])
     ->middleware('auth')
     ->name('home'); 
+
+Route::get(uri: '/home', action: function () {
+    return redirect(to: '/');
+})->name('home');
+
 Auth::routes();
 
 //Post routes
